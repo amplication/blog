@@ -1,0 +1,51 @@
+@font-face {
+	font-family: 'poppinsbold';
+	src: url('/assets/fonts/poppins-bold-webfont.woff2') format('woff2'),
+		url('/assets/fonts/poppins-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'poppinsmedium';
+	src: url('/assets/fonts/poppins-medium-webfont.woff2') format('woff2'),
+		url('/assets/fonts/poppins-medium-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'poppinsregular';
+	src: url('/assets/fonts/poppins-regular-webfont.woff2') format('woff2'),
+		url('/assets/fonts/poppins-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'poppinssemibold';
+	src: url('/assets/fonts/poppins-semibold-webfont.woff2') format('woff2'),
+		url('/assets/fonts/poppins-semibold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'ubuntu_monobold';
+	src: url('/assets/fonts/ubuntumono-bold-webfont.woff2') format('woff2'),
+		url('/assets/fonts/ubuntumono-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'dm_monoregular';
+	src: url('/assets/fonts/dmmono-regular.woff2') format('woff2'),
+		url('/assets/fonts/dmmono-regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
