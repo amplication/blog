@@ -9,7 +9,7 @@ const AuthorInfo: React.FC = () => {
 				width='32px'
 				height='32px'
 			/>
-			<div className='text-sm'>
+			<div className='text-xs'>
 				<p>Matan Shidlov</p>
 				<p>Dec 27, 2021</p>
 			</div>

@@ -31,11 +31,13 @@ module.exports = {
 				poppinsbold: ['poppinsbold', 'sans-serif'],
 				ubuntu_monobold: ['ubuntu_monobold', 'sans-serif'],
 				dm_monoregular: ['dm_monoregular', 'sans-serif'],
+				dm_monomedium: ['dm_monomedium', 'sans-serif'],
 			},
 		},
 	},
 	plugins: [
 		require('tailwind-scrollbar-hide'),
 		require('@tailwindcss/line-clamp'),
+		require('@tailwindcss/forms'),
 	],
 };
