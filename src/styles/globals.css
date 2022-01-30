@@ -1,0 +1,67 @@
+@font-face {
+	font-family: 'poppinsbold';
+	src: url('/assets/fonts/poppins-bold-webfont.woff2') format('woff2'),
+		url('/assets/fonts/poppins-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'poppinsmedium';
+	src: url('/assets/fonts/poppins-medium-webfont.woff2') format('woff2'),
+		url('/assets/fonts/poppins-medium-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'poppinsregular';
+	src: url('/assets/fonts/poppins-regular-webfont.woff2') format('woff2'),
+		url('/assets/fonts/poppins-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'poppinssemibold';
+	src: url('/assets/fonts/poppins-semibold-webfont.woff2') format('woff2'),
+		url('/assets/fonts/poppins-semibold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'ubuntu_monobold';
+	src: url('/assets/fonts/ubuntumono-bold-webfont.woff2') format('woff2'),
+		url('/assets/fonts/ubuntumono-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'dm_monoregular';
+	src: url('/assets/fonts/dmmono-regular.woff2') format('woff2'),
+		url('/assets/fonts/dmmono-regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'dm_monomedium';
+	src: url('/assets/fonts/dmmono-medium.woff2') format('woff2'),
+		url('/assets/fonts/dmmono-medium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.hot-news-shadow {
+	box-shadow: 0px 44px 48px -24px rgba(9, 11, 20, 0.3);
+}
+
+.try-amplication {
+	box-shadow: 0px 8px 20px rgba(19, 22, 36, 0.24);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
