@@ -1,4 +1,4 @@
-import PostTag from './PostTag';
+import PostTag from '../common/PostTag';
 
 const Tags: React.FC = () => {
 	return (

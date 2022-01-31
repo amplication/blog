@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 
 import AuthorInfo from '../common/AuthorInfo';
-import Tags from '../common/Tags';
-import CardBadge from './Cardbadge';
+import Tags from './Tags';
+import CardBadge from './CardBadge';
 import NewsContent from './NewsContent';
 
 const HotNewsCard: React.FC = () => {
@@ -11,7 +11,7 @@ const HotNewsCard: React.FC = () => {
 			{/* Card Text */}
 			<div className='order-1 lg:order-none lg:px-8 bg-dark-90 lg:pt-[100px] lg:pb-[84px] lg:basis-1/2 rounded-bl-2xl rounded-br-2xl lg:rounded-br-none lg:rounded-tl-2xl py-[30px] px-6'>
 				<div className='flex flex-col gap-y-4 lg:gap-y-6'>
-					<AuthorInfo />
+					<AuthorInfo width='32px' height='32px' />
 					<Tags />
 					<NewsContent />
 				</div>

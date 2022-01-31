@@ -3,9 +3,10 @@ import data from './allposts.json';
 import CategorySwitcher from './CategorySwitcher';
 import HotNewsCard from './HotNewsCard';
 import PostCard from './PostCard';
-const AllPosts: React.FC = ({ children }) => {
+
+const PostList: React.FC = ({ children }) => {
 	return (
-		<section className='mt-[53px] lg:mt-[83px] '>
+		<section>
 			<div className='container'>
 				{/* Category Switcher */}
 				<CategorySwitcher />
@@ -47,4 +48,4 @@ const AllPosts: React.FC = ({ children }) => {
 	);
 };
 
-export default AllPosts;
+export default PostList;

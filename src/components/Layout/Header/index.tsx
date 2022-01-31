@@ -4,7 +4,7 @@ import Version from './Version';
 
 const Header: React.FC = () => {
 	return (
-		<header className=' border border-[#22273C] sticky'>
+		<header className=' border border-[#22273C] relative mb-[53px] lg:mb-[83px]'>
 			{/* Topbar */}
 			<Topbar />
 
