@@ -9,8 +9,6 @@ import SidebarWidgetTitle from './SidebarWidgetTitle';
 
 const PostShareWidget: React.FC = () => {
 	const router = useRouter();
-	console.log(router);
-
 	return (
 		<div className='flex flex-col order-2 md:order-none gap-y-4'>
 			<SidebarWidgetTitle title='Share this post' />

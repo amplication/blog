@@ -40,22 +40,28 @@ const RelatedPostSlider: React.FC = () => {
 				<Slider {...settings}>
 					<div>
 						<PostCard
+							id='123'
 							title='Amplication workdocs updates, better column visibility, and oth...'
 							image='/assets/images/related-posts/image-1.png'
+							authorName='Jhon Doe'
 							postSlider
 						/>
 					</div>
 					<div>
 						<PostCard
+							id='124'
 							title='Amplication workdocs updates, better column visibility, and oth...'
 							image='/assets/images/related-posts/image-2.png'
+							authorName='Jhon Doe'
 							postSlider
 						/>
 					</div>
 					<div>
 						<PostCard
+							id='125'
 							title='Amplication workdocs updates, better column visibility, and oth...'
 							image='/assets/images/related-posts/image-3.png'
+							authorName='Jhon Doe'
 							postSlider
 						/>
 					</div>

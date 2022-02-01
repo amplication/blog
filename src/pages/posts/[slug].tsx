@@ -8,21 +8,42 @@ import RelatedPostList from '@/components/postDetails/RelatedPostList';
 import RelatedPostSlider from '@/components/postDetails/RelatedPostSlider';
 import Sidebar from '@/components/postDetails/Sidebar';
 import AuthorInfo from '@/components/PostList/common/AuthorInfo';
-import type { NextPage } from 'next';
-import { useRouter } from 'next/router';
+import { gql } from '@apollo/client';
+import { client } from 'lib/apollo-client';
+import type { GetServerSideProps, NextPage } from 'next';
+import getIdFromSlug from 'utils/getSlug';
 
-const PostDetails: NextPage = () => {
-	const router = useRouter();
+interface Props {
+	post: Post;
+}
 
-	console.log(router.query);
+interface Post {
+	id: string;
+	title: string;
+	content: string;
+	featuredImage: string;
+	author: Author;
+	tags: Tag[];
+}
 
-	const heading =
-		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis';
+interface Author {
+	id: string;
+	firstName: string;
+	lastName: string;
+	picture?: string;
+}
 
-	const first4 = heading.split(' ').slice(0, 4).join(' ');
+interface Tag {
+	name: string;
+}
+
+const PostDetails: NextPage<Props> = ({ post }) => {
+	console.log(post);
+
+	const first4 = post.title.split(' ').slice(0, 4).join(' ');
 
 	return (
-		<Layout pageName='Post Details'>
+		<Layout pageName={post.title} pageDesc={post.content}>
 			<section className='px-4 md:px-16 xl:px-0'>
 				<div className='container'>
 					{/* Breadcrumb */}
@@ -31,20 +52,25 @@ const PostDetails: NextPage = () => {
 						<div className='xl:col-span-8'>
 							<div className='mb-8'>
 								{/* Headline */}
-								<Headline text={heading} />
+								<Headline text={post.title} />
 
 								{/* Taglist */}
 								<PostTagList />
 
 								{/* Author Info */}
 								<AuthorInfo
+									authorName={`${post.author.firstName} ${post.author.lastName}`}
 									width='50px'
 									height='50px'
 									postDetails
 								/>
 							</div>
 							{/* Post Content */}
-							<PostContent />
+							<PostContent
+								image={post.featuredImage}
+								text={post.content}
+								title={post.title}
+							/>
 
 							{/* Related Post Slider for small devices */}
 							<RelatedPostSlider />
@@ -63,3 +89,35 @@ const PostDetails: NextPage = () => {
 };
 
 export default PostDetails;
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+	const postId = getIdFromSlug(ctx.query.slug);
+
+	const { data } = await client.query({
+		query: gql`
+			query getPost($postId: String!) {
+				post(where: { id: $postId }) {
+					id
+					author {
+						id
+						firstName
+						lastName
+					}
+					title
+					content
+					featuredImage
+					tags {
+						name
+					}
+				}
+			}
+		`,
+		variables: { postId },
+	});
+
+	return {
+		props: {
+			post: data.post,
+		},
+	};
+};

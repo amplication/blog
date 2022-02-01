@@ -4,9 +4,13 @@ interface AuthorProps {
 	width: string;
 	height: string;
 	postDetails?: boolean;
+	authorName: string;
+	picture?: string;
 }
 
 const AuthorInfo: React.FC<AuthorProps> = ({
+	authorName,
+	picture,
 	width,
 	height,
 	postDetails = false,
@@ -21,7 +25,7 @@ const AuthorInfo: React.FC<AuthorProps> = ({
 			/>
 			<div className=''>
 				<p className={postDetails ? 'text-lg ' : 'text-sm'}>
-					Matan Shidlov
+					{authorName}
 				</p>
 				<p className={postDetails ? 'text-sm ' : 'text-xs'}>
 					Dec 27, 2021

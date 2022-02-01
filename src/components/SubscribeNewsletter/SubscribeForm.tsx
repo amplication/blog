@@ -79,7 +79,7 @@ const SubscribeForm: React.FC<Props> = ({ postDetails }) => {
 					postDetails ? '' : 'w-full xl:w-[280px]'
 				} text-base font-poppinsregular border border-dark-60 rounded-lg py-2 px-3 placeholder:text-dark-20`}
 			>
-				<option selected>How did you hear about us</option>
+				<option>How did you hear about us</option>
 				<option value='facebook'>Facebook</option>
 				<option value='twitter'>Twitter</option>
 				<option value='linkedin'>Linkedin</option>
