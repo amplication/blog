@@ -8,42 +8,26 @@ import RelatedPostList from '@/components/postDetails/RelatedPostList';
 import RelatedPostSlider from '@/components/postDetails/RelatedPostSlider';
 import Sidebar from '@/components/postDetails/Sidebar';
 import AuthorInfo from '@/components/PostList/common/AuthorInfo';
+import { Post } from '@/types';
 import { gql } from '@apollo/client';
 import { client } from 'lib/apollo-client';
 import type { GetServerSideProps, NextPage } from 'next';
 import getIdFromSlug from 'utils/getSlug';
-
 interface Props {
 	post: Post;
 }
 
-interface Post {
-	id: string;
-	title: string;
-	content: string;
-	featuredImage: string;
-	author: Author;
-	tags: Tag[];
-}
-
-interface Author {
-	id: string;
-	firstName: string;
-	lastName: string;
-	picture?: string;
-}
-
-interface Tag {
-	name: string;
-}
-
 const PostDetails: NextPage<Props> = ({ post }) => {
-	console.log(post);
-
-	const first4 = post.title.split(' ').slice(0, 4).join(' ');
-
+	const first4 = post
+		? post.title.split(' ').slice(0, 4).join(' ')
+		: 'Lorem Sum a Lorem';
+	const dummyText =
+		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati id consequuntur dicta sunt voluptates? Quaerat aperiam incidunt modi qui deserunt sint ipsam iste laboriosam asperiores ullam rerum doloribus nihil debitis minus, delectus at distinctio velit, id ipsa a ducimus fugiat quisquam? Doloribus saepe laboriosam excepturi illo, itaque quo tempora a est sunt facilis? Aperiam, eos impedit? Inventore delectus praesentium itaque necessitatibus, quis dolor ducimus deleniti modi odio, neque assumenda. Tempora repudiandae reiciendis culpa officiis rerum repellendus vero ipsa, fugiat beatae consequuntur quaerat itaque libero a ea expedita nostrum mollitia? Soluta laboriosam, repellendus ea sequi harum sit. Voluptate reprehenderit aut praesentium? Vero, natus ab. Libero hic deserunt odit, sit ipsum cupiditate sint ullam delectus similique explicabo ducimus porro amet aliquam tenetur fugiat nostrum reiciendis ea officia doloribus, eum sequi? Voluptate corrupti illo alias labore. Sunt magni soluta earum nostrum, quo quos consequatur repudiandae? Quia, quaerat. Ut quaerat quibusdam adipisci placeat quisquam.';
 	return (
-		<Layout pageName={post.title} pageDesc={post.content}>
+		<Layout
+			pageName={post ? post.title : 'Related Post'}
+			pageDesc={post ? post.content : dummyText}
+		>
 			<section className='px-4 md:px-16 xl:px-0'>
 				<div className='container'>
 					{/* Breadcrumb */}
@@ -52,14 +36,20 @@ const PostDetails: NextPage<Props> = ({ post }) => {
 						<div className='xl:col-span-8'>
 							<div className='mb-8'>
 								{/* Headline */}
-								<Headline text={post.title} />
+								<Headline
+									text={post ? post.title : 'Lorem sum a pit'}
+								/>
 
 								{/* Taglist */}
 								<PostTagList />
 
 								{/* Author Info */}
 								<AuthorInfo
-									authorName={`${post.author.firstName} ${post.author.lastName}`}
+									authorName={
+										post
+											? `${post.author.firstName} ${post.author.lastName}`
+											: 'John Doe'
+									}
 									width='50px'
 									height='50px'
 									postDetails
@@ -67,9 +57,13 @@ const PostDetails: NextPage<Props> = ({ post }) => {
 							</div>
 							{/* Post Content */}
 							<PostContent
-								image={post.featuredImage}
-								text={post.content}
-								title={post.title}
+								image={
+									post
+										? post.featuredImage
+										: '/assets/images/post-details/image-1.png'
+								}
+								text={post ? post.content : dummyText}
+								title={post ? post.title : 'Lorem sum a pit'}
 							/>
 
 							{/* Related Post Slider for small devices */}
