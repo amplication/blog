@@ -2,7 +2,7 @@
 
 import AuthorInfo from '../common/AuthorInfo';
 import Tags from '../common/Tags';
-import CardBadge from './Cardbadge';
+import CardBadge from './CardBadge';
 import NewsContent from './NewsContent';
 
 const HotNewsCard: React.FC = () => {
