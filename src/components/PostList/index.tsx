@@ -22,6 +22,7 @@ const PostList: React.FC<PageProps> = ({ children, posts }) => {
 							text={post.content}
 							image={post.featuredImage}
 							authorName={`${post.author.firstName} ${post.author.lastName}`}
+							authorPicture={post.author.profileImage}
 							tags={post.tags}
 						/>
 					))}
@@ -31,7 +32,7 @@ const PostList: React.FC<PageProps> = ({ children, posts }) => {
 
 				{/* Rest Posts */}
 				<div className='px-4 xl:px-0 w-full grid lg:grid-cols-3 gap-y-6 lg:gap-y-[75px] lg:gap-x-[30px]'>
-					{posts.slice(7).map((post) => (
+					{posts.slice(7, 10).map((post) => (
 						<PostCard
 							id={post.id}
 							key={post.id}
@@ -39,6 +40,7 @@ const PostList: React.FC<PageProps> = ({ children, posts }) => {
 							text={post.content}
 							image={post.featuredImage}
 							authorName={`${post.author.firstName} ${post.author.lastName}`}
+							authorPicture={post.author.profileImage}
 							tags={post.tags}
 						/>
 					))}

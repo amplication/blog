@@ -22,7 +22,13 @@ const PostDetails: NextPage<Props> = ({ post }) => {
 		? post.title.split(' ').slice(0, 4).join(' ')
 		: 'Lorem Sum a Lorem';
 	const dummyText =
-		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati id consequuntur dicta sunt voluptates? Quaerat aperiam incidunt modi qui deserunt sint ipsam iste laboriosam asperiores ullam rerum doloribus nihil debitis minus, delectus at distinctio velit, id ipsa a ducimus fugiat quisquam? Doloribus saepe laboriosam excepturi illo, itaque quo tempora a est sunt facilis? Aperiam, eos impedit? Inventore delectus praesentium itaque necessitatibus, quis dolor ducimus deleniti modi odio, neque assumenda. Tempora repudiandae reiciendis culpa officiis rerum repellendus vero ipsa, fugiat beatae consequuntur quaerat itaque libero a ea expedita nostrum mollitia? Soluta laboriosam, repellendus ea sequi harum sit. Voluptate reprehenderit aut praesentium? Vero, natus ab. Libero hic deserunt odit, sit ipsum cupiditate sint ullam delectus similique explicabo ducimus porro amet aliquam tenetur fugiat nostrum reiciendis ea officia doloribus, eum sequi? Voluptate corrupti illo alias labore. Sunt magni soluta earum nostrum, quo quos consequatur repudiandae? Quia, quaerat. Ut quaerat quibusdam adipisci placeat quisquam.';
+		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati id consequuntur dicta sunt voluptates? Quaerat aperiam incidunt modi qui deserunt sint ipsam iste laboriosam asperiores ullam rerum doloribus nihil debitis minus, delectus at distinctio velit, id ipsa a ducimus fugiat quisquam? Doloribus saepe laboriosam excepturi illo, itaque quo tempora a est sunt facilis? Aperiam, eos impedit? Inventore delectus praesentium itaque necessitatibus, quis dolor ducimus deleniti modi odio, neque assumenda. Tempora repudiandae reiciendis culpa officiis rerum repellendus vero ipsa.';
+
+	const tags = [
+		{ name: 'Blog Tag1' },
+		{ name: 'Blog Tag2' },
+		{ name: 'Blog Tag3' },
+	];
 	return (
 		<Layout
 			pageName={post ? post.title : 'Related Post'}
@@ -41,7 +47,7 @@ const PostDetails: NextPage<Props> = ({ post }) => {
 								/>
 
 								{/* Taglist */}
-								<PostTagList />
+								<PostTagList tags={post ? post.tags : tags} />
 
 								{/* Author Info */}
 								<AuthorInfo
@@ -50,8 +56,11 @@ const PostDetails: NextPage<Props> = ({ post }) => {
 											? `${post.author.firstName} ${post.author.lastName}`
 											: 'John Doe'
 									}
-									width='50px'
-									height='50px'
+									authorPicture={
+										post
+											? post.author.profileImage
+											: '/assets/images/hot-news/author.png'
+									}
 									postDetails
 								/>
 							</div>
@@ -96,6 +105,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 						id
 						firstName
 						lastName
+						profileImage
 					}
 					title
 					content

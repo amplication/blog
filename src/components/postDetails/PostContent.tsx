@@ -10,7 +10,13 @@ const PostContent: React.FC<Props> = ({ title, text, image }) => {
 	return (
 		<div className='flex flex-col gap-y-8 mb-12 xl:mb-[100px]'>
 			<div>
-				<Image src={image} width='880px' height='400px' alt={title} />
+				<Image
+					src={image}
+					width='880px'
+					height='400px'
+					alt={title}
+					className='rounded-2xl'
+				/>
 			</div>
 			<p className='text-lg'>{text}</p>
 			{/* <p className='text-lg'>

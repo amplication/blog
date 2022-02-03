@@ -12,6 +12,7 @@ const PostCard: React.FC<PostCardProps> = ({
 	title,
 	postSlider = false,
 	authorName,
+	authorPicture,
 	tags,
 }) => {
 	return (
@@ -27,15 +28,14 @@ const PostCard: React.FC<PostCardProps> = ({
 						alt={title}
 						width='476px'
 						height='250px'
-						className='cursor-pointer'
+						className='cursor-pointer rounded-tr-2xl rounded-tl-2xl'
 					/>
 				</div>
 			</Link>
 			<div className='flex flex-col p-6 gap-y-4'>
 				<AuthorInfo
 					authorName={authorName}
-					width='32px'
-					height='32px'
+					authorPicture={authorPicture}
 				/>
 				<Tags tags={tags} />
 				<Link href={`/posts/${makeSlug(title)}-${id}`} passHref>
