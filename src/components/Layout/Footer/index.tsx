@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
 				alt=''
 				className='absolute bottom-0 right-0 hidden opacity-30 xl:block'
 			/>
-			<div className='py-12 md:py-20 xl:py-[121px]'>
+			<div className='py-12 md:py-20 xl:py-[121px] relative z-10'>
 				<div className='container'>
 					<div className='flex flex-col items-center px-6 md:px-0 xl:flex-row xl:justify-between gap-y-12 md:gap-y-20 xl:gap-y-0'>
 						<WidgetOne />

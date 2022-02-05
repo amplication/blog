@@ -15,7 +15,7 @@ export interface Author {
 	id: string;
 	firstName: string;
 	lastName: string;
-	picture?: string;
+	profileImage: string;
 }
 
 export interface Tag {
@@ -28,6 +28,7 @@ export interface PostCardProps {
 	text?: string;
 	image: string;
 	authorName: string;
+	authorPicture: string;
 	postSlider?: boolean;
-	tags?: Tag[];
+	tags: Tag[];
 }

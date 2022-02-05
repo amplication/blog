@@ -2,16 +2,19 @@ import Image from 'next/image';
 
 const Topbar: React.FC = () => {
 	return (
-		<div className='items-center justify-center hidden px-4 py-4 lg:flex xl:px-16 gap-x-2 bg-dark-90'>
+		<a
+			href='https://github.com/amplication/amplication'
+			className='items-center justify-center hidden px-4 py-4 lg:flex xl:px-16 gap-x-2 bg-dark-90'
+		>
 			{/* Star Icon */}
-			<a href=''>
+			<div>
 				<Image
 					src='/assets/images/icons/star.svg'
 					alt=''
 					width='16px'
 					height='16px'
 				/>
-			</a>
+			</div>
 
 			{/* Text */}
 			<span className='mb-1 text-xs font-dm_monoregular'>
@@ -19,15 +22,15 @@ const Topbar: React.FC = () => {
 			</span>
 
 			{/* Github Icon */}
-			<a href=''>
+			<div>
 				<Image
 					src='/assets/images/icons/github.svg'
 					alt=''
 					width='16px'
 					height='16px'
 				/>
-			</a>
-		</div>
+			</div>
+		</a>
 	);
 };
 

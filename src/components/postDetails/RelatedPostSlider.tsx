@@ -33,6 +33,12 @@ const RelatedPostSlider: React.FC = () => {
 			},
 		],
 	};
+
+	const tags = [
+		{ name: 'Blog Tag1' },
+		{ name: 'Blog Tag2' },
+		{ name: 'Blog Tag3' },
+	];
 	return (
 		<div className='mb-20 xl:hidden'>
 			<SidebarWidgetTitle title='Related Posts' />
@@ -45,6 +51,8 @@ const RelatedPostSlider: React.FC = () => {
 							image='/assets/images/related-posts/image-1.png'
 							authorName='Jhon Doe'
 							postSlider
+							authorPicture='/assets/images/hot-news/author.png'
+							tags={tags}
 						/>
 					</div>
 					<div>
@@ -54,6 +62,8 @@ const RelatedPostSlider: React.FC = () => {
 							image='/assets/images/related-posts/image-2.png'
 							authorName='Jhon Doe'
 							postSlider
+							authorPicture='/assets/images/hot-news/author.png'
+							tags={tags}
 						/>
 					</div>
 					<div>
@@ -62,7 +72,9 @@ const RelatedPostSlider: React.FC = () => {
 							title='Amplication workdocs updates, better column visibility, and oth...'
 							image='/assets/images/related-posts/image-3.png'
 							authorName='Jhon Doe'
+							authorPicture='/assets/images/hot-news/author.png'
 							postSlider
+							tags={tags}
 						/>
 					</div>
 				</Slider>

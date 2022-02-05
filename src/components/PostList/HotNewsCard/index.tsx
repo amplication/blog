@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { Author, Tag } from '@/types';
 import Link from 'next/link';
 import makeSlug from 'utils/makeSlug';
 import AuthorInfo from '../common/AuthorInfo';
@@ -19,17 +20,6 @@ interface HotNews {
 	tags: Tag[];
 }
 
-interface Author {
-	id: string;
-	firstName: string;
-	lastName: string;
-	picture?: string;
-}
-
-interface Tag {
-	name: string;
-}
-
 const HotNewsCard: React.FC<Props> = ({ hotNews }) => {
 	return (
 		<div className='flex relative flex-col px-4 lg:flex-row hot-news-shadow xl:px-0 mb-[24px] lg:mb-[100px]'>
@@ -38,8 +28,7 @@ const HotNewsCard: React.FC<Props> = ({ hotNews }) => {
 				<div className='flex flex-col gap-y-4 lg:gap-y-6'>
 					<AuthorInfo
 						authorName={`${hotNews.author.firstName} ${hotNews.author.lastName}`}
-						width='32px'
-						height='32px'
+						authorPicture={hotNews.author.profileImage}
 					/>
 					<Tags tags={hotNews.tags} />
 					<NewsContent
@@ -54,7 +43,7 @@ const HotNewsCard: React.FC<Props> = ({ hotNews }) => {
 				href={`/posts/${makeSlug(hotNews.title)}-${hotNews.id}`}
 				passHref
 			>
-				<div className='flex items-stretch lg:basis-1/2 shrink-0 cursor-pointer'>
+				<div className='flex items-stretch cursor-pointer lg:basis-1/2 shrink-0'>
 					<img
 						src={hotNews.featuredImage}
 						alt=''

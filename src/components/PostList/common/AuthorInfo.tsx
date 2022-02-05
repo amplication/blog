@@ -1,28 +1,27 @@
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
 
 interface AuthorProps {
-	width: string;
-	height: string;
 	postDetails?: boolean;
 	authorName: string;
-	picture?: string;
+	authorPicture: string;
 }
 
 const AuthorInfo: React.FC<AuthorProps> = ({
 	authorName,
-	picture,
-	width,
-	height,
+	authorPicture,
 	postDetails = false,
 }) => {
 	return (
 		<div className='flex items-center gap-x-3'>
-			<Image
-				src='/assets/images/hot-news/author.png'
-				alt=''
-				width={width}
-				height={height}
-			/>
+			<div>
+				<img
+					src={authorPicture}
+					alt={authorName}
+					width={postDetails ? '50px' : '32px'}
+					height={postDetails ? '50px' : '32px'}
+					className='rounded-full'
+				/>
+			</div>
 			<div className=''>
 				<p className={postDetails ? 'text-lg ' : 'text-sm'}>
 					{authorName}

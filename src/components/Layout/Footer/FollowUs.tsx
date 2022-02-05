@@ -5,14 +5,23 @@ const FollowUs: React.FC = () => {
 		<div className=''>
 			<h4 className='mb-6 text-lg font-poppinsmedium'>Follow us</h4>
 			<div className='flex gap-x-8'>
-				<a href=''>
-					<img src='/assets/images/footer/github.svg' alt='' />
+				<a href='https://github.com/amplication/amplication'>
+					<img
+						src='/assets/images/footer/github.svg'
+						alt='Amplication'
+					/>
 				</a>
-				<a href=''>
-					<img src='/assets/images/footer/linkedin.svg' alt='' />
+				<a href='https://www.linkedin.com/company/amplication'>
+					<img
+						src='/assets/images/footer/linkedin.svg'
+						alt='Amplication'
+					/>
 				</a>
-				<a href=''>
-					<img src='/assets/images/footer/twitter.svg' alt='' />
+				<a href='https://twitter.com/amplication'>
+					<img
+						src='/assets/images/footer/twitter.svg'
+						alt='Amplication'
+					/>
 				</a>
 			</div>
 		</div>
