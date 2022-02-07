@@ -6,13 +6,13 @@ import { gql } from '@apollo/client';
 import { client } from 'lib/apollo-client';
 import type { GetServerSideProps, NextPage } from 'next';
 
-const Home: NextPage<PageProps> = ({ posts }) => {
+const Home: NextPage<PageProps> = ({ posts, tagList }) => {
 	return (
 		<Layout
 			pageName='Blog'
 			pageDesc='Amplication is an open‑source development tool. It helps you develop quality Node.js applications without spending time on repetitive coding tasks.'
 		>
-			<PostList posts={posts}>
+			<PostList posts={posts} tagList={tagList}>
 				{/* Newsletter Sign Up Form */}
 				<SubscribeNewsletter />
 			</PostList>
@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 	const { data } = await client.query({
 		query: gql`
 			query {
-				posts {
+				posts(orderBy: { createdAt: Desc }) {
 					id
 					author {
 						id
@@ -38,8 +38,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
 					content
 					featuredImage
 					tags {
+						id
 						name
 					}
+					createdAt
+				}
+				tags {
+					id
+					name
 				}
 			}
 		`,
@@ -48,6 +54,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 	return {
 		props: {
 			posts: data.posts,
+			tagList: data.tags,
 		},
 	};
 };

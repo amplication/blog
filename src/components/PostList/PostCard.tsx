@@ -1,6 +1,7 @@
 import { PostCardProps } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
 import makeSlug from 'utils/makeSlug';
 import AuthorInfo from './common/AuthorInfo';
 import Tags from './HotNewsCard/Tags';
@@ -14,6 +15,7 @@ const PostCard: React.FC<PostCardProps> = ({
 	authorName,
 	authorPicture,
 	tags,
+	createdAt,
 }) => {
 	return (
 		<div
@@ -36,16 +38,17 @@ const PostCard: React.FC<PostCardProps> = ({
 				<AuthorInfo
 					authorName={authorName}
 					authorPicture={authorPicture}
+					createdAt={createdAt}
 				/>
 				<Tags tags={tags} />
 				<Link href={`/posts/${makeSlug(title)}-${id}`} passHref>
 					<div className='cursor-pointer'>
-						<h3 className='mb-3 text-lg font-poppinsmedium line-clamp-2 lg:line-clamp-none lg:mb-0'>
+						<h3 className='mb-3 text-lg font-poppinsmedium line-clamp-2 lg:mb-0'>
 							{title}
 						</h3>
-						{text && (
-							<p className='hidden text-sm lg:block'>{text}</p>
-						)}
+						<ReactMarkdown className='hidden text-sm lg:block lg:line-clamp-2'>
+							{text as string}
+						</ReactMarkdown>
 					</div>
 				</Link>
 			</div>

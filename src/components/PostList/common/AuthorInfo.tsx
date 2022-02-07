@@ -1,15 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 
+import dayjs from 'dayjs';
 interface AuthorProps {
 	postDetails?: boolean;
 	authorName: string;
 	authorPicture: string;
+	createdAt: string;
 }
 
 const AuthorInfo: React.FC<AuthorProps> = ({
 	authorName,
 	authorPicture,
 	postDetails = false,
+	createdAt,
 }) => {
 	return (
 		<div className='flex items-center gap-x-3'>
@@ -27,7 +30,7 @@ const AuthorInfo: React.FC<AuthorProps> = ({
 					{authorName}
 				</p>
 				<p className={postDetails ? 'text-sm ' : 'text-xs'}>
-					Dec 27, 2021
+					{dayjs(createdAt).format('DD MMM YYYY')}
 				</p>
 			</div>
 		</div>

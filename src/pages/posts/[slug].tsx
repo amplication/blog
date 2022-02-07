@@ -8,16 +8,17 @@ import RelatedPostList from '@/components/postDetails/RelatedPostList';
 import RelatedPostSlider from '@/components/postDetails/RelatedPostSlider';
 import Sidebar from '@/components/postDetails/Sidebar';
 import AuthorInfo from '@/components/PostList/common/AuthorInfo';
-import { Post } from '@/types';
+import { Post, Tag } from '@/types';
 import { gql } from '@apollo/client';
 import { client } from 'lib/apollo-client';
 import type { GetServerSideProps, NextPage } from 'next';
 import getIdFromSlug from 'utils/getSlug';
 interface Props {
 	post: Post;
+	tagList: Tag[];
 }
 
-const PostDetails: NextPage<Props> = ({ post }) => {
+const PostDetails: NextPage<Props> = ({ post, tagList }) => {
 	const first4 = post
 		? post.title.split(' ').slice(0, 4).join(' ')
 		: 'Lorem Sum a Lorem';
@@ -25,9 +26,9 @@ const PostDetails: NextPage<Props> = ({ post }) => {
 		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati id consequuntur dicta sunt voluptates? Quaerat aperiam incidunt modi qui deserunt sint ipsam iste laboriosam asperiores ullam rerum doloribus nihil debitis minus, delectus at distinctio velit, id ipsa a ducimus fugiat quisquam? Doloribus saepe laboriosam excepturi illo, itaque quo tempora a est sunt facilis? Aperiam, eos impedit? Inventore delectus praesentium itaque necessitatibus, quis dolor ducimus deleniti modi odio, neque assumenda. Tempora repudiandae reiciendis culpa officiis rerum repellendus vero ipsa.';
 
 	const tags = [
-		{ name: 'Blog Tag1' },
-		{ name: 'Blog Tag2' },
-		{ name: 'Blog Tag3' },
+		{ id: '1', name: 'Blog Tag1' },
+		{ id: '2', name: 'Blog Tag2' },
+		{ id: '3', name: 'Blog Tag3' },
 	];
 	return (
 		<Layout
@@ -62,6 +63,9 @@ const PostDetails: NextPage<Props> = ({ post }) => {
 											: '/assets/images/hot-news/author.png'
 									}
 									postDetails
+									createdAt={
+										post ? post.createdAt : '2020-05-05'
+									}
 								/>
 							</div>
 							{/* Post Content */}
@@ -81,7 +85,7 @@ const PostDetails: NextPage<Props> = ({ post }) => {
 						{/* Spacer */}
 						<div className='xl:col-span-1' />
 						{/* Sidebar */}
-						<Sidebar />
+						<Sidebar tagList={tagList} />
 					</div>
 					{/* Related Post Slider for Large devices */}
 					<RelatedPostList />
@@ -111,8 +115,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 					content
 					featuredImage
 					tags {
+						id
 						name
 					}
+				}
+				tags {
+					id
+					name
 				}
 			}
 		`,
@@ -122,6 +131,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	return {
 		props: {
 			post: data.post,
+			tagList: data.tags,
 		},
 	};
 };

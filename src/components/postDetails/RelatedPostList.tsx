@@ -3,9 +3,9 @@ import SidebarWidgetTitle from './Sidebar/SidebarWidgetTitle';
 
 const RelatedPostList: React.FC = () => {
 	const tags = [
-		{ name: 'Blog Tag1' },
-		{ name: 'Blog Tag2' },
-		{ name: 'Blog Tag3' },
+		{ id: '1', name: 'Blog Tag1' },
+		{ id: '2', name: 'Blog Tag2' },
+		{ id: '3', name: 'Blog Tag3' },
 	];
 	return (
 		<div className='hidden xl:block xl:mb-[100px] '>
@@ -18,6 +18,7 @@ const RelatedPostList: React.FC = () => {
 					authorPicture='/assets/images/hot-news/author.png'
 					image='/assets/images/related-posts/image-1.png'
 					tags={tags}
+					createdAt='2020-05-01'
 				/>
 				<PostCard
 					id='124'
@@ -26,6 +27,7 @@ const RelatedPostList: React.FC = () => {
 					authorPicture='/assets/images/hot-news/author.png'
 					image='/assets/images/related-posts/image-2.png'
 					tags={tags}
+					createdAt='2020-05-01'
 				/>
 				<PostCard
 					id='125'
@@ -34,6 +36,7 @@ const RelatedPostList: React.FC = () => {
 					authorPicture='/assets/images/hot-news/author.png'
 					image='/assets/images/related-posts/image-3.png'
 					tags={tags}
+					createdAt='2020-05-01'
 				/>
 			</div>
 		</div>
