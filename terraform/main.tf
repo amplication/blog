@@ -14,7 +14,7 @@ resource "google_cloud_run_service" "service" {
       containers {
         image = var.image
         env {
-          name  = "EXTERNAL_BLOG_SERVER_URL"
+          name  = "NEXT_PUBLIC_API_URL"
           value = var.external_blog_server_url
         }
       }
