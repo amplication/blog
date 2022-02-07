@@ -80,3 +80,9 @@ ul.slick-dots {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.post-content a {
+		@apply text-purple-primary-dark;
+	}
+}

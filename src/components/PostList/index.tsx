@@ -1,15 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import { PageProps } from '@/types';
+import { useState } from 'react';
 import CategorySwitcher from './CategorySwitcher';
 import HotNewsCard from './HotNewsCard';
 import PostCard from './PostCard';
 
-const PostList: React.FC<PageProps> = ({ children, posts }) => {
+const PostList: React.FC<PageProps> = ({ children, posts, tagList }) => {
+	const [postLimit, setPostLimit] = useState(10);
+
 	return (
 		<section>
 			<div className='container'>
 				{/* Category Switcher */}
-				<CategorySwitcher />
+				<CategorySwitcher tagList={tagList} />
 				{/* Hot News Card */}
 				<HotNewsCard hotNews={posts[0]} />
 				{/* First 6 Posts */}
@@ -24,6 +27,7 @@ const PostList: React.FC<PageProps> = ({ children, posts }) => {
 							authorName={`${post.author.firstName} ${post.author.lastName}`}
 							authorPicture={post.author.profileImage}
 							tags={post.tags}
+							createdAt={post.createdAt}
 						/>
 					))}
 				</div>
@@ -32,7 +36,7 @@ const PostList: React.FC<PageProps> = ({ children, posts }) => {
 
 				{/* Rest Posts */}
 				<div className='px-4 xl:px-0 w-full grid lg:grid-cols-3 gap-y-6 lg:gap-y-[75px] lg:gap-x-[30px]'>
-					{posts.slice(7, 10).map((post) => (
+					{posts.slice(7, postLimit).map((post) => (
 						<PostCard
 							id={post.id}
 							key={post.id}
@@ -42,13 +46,17 @@ const PostList: React.FC<PageProps> = ({ children, posts }) => {
 							authorName={`${post.author.firstName} ${post.author.lastName}`}
 							authorPicture={post.author.profileImage}
 							tags={post.tags}
+							createdAt={post.createdAt}
 						/>
 					))}
 				</div>
 
 				{posts.length > 9 ? (
 					<div className='py-12 lg:pt-[75px] lg:pb-[100px] text-center'>
-						<button className='bg-dark-70 w-[118px] py-2 px-4 rounded'>
+						<button
+							className='bg-dark-70 w-[118px] py-2 px-4 rounded'
+							onClick={() => setPostLimit((prev) => prev + 9)}
+						>
 							Load More
 						</button>
 					</div>

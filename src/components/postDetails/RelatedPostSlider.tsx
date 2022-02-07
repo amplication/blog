@@ -35,9 +35,9 @@ const RelatedPostSlider: React.FC = () => {
 	};
 
 	const tags = [
-		{ name: 'Blog Tag1' },
-		{ name: 'Blog Tag2' },
-		{ name: 'Blog Tag3' },
+		{ id: '1', name: 'Blog Tag1' },
+		{ id: '2', name: 'Blog Tag2' },
+		{ id: '3', name: 'Blog Tag3' },
 	];
 	return (
 		<div className='mb-20 xl:hidden'>
@@ -53,6 +53,7 @@ const RelatedPostSlider: React.FC = () => {
 							postSlider
 							authorPicture='/assets/images/hot-news/author.png'
 							tags={tags}
+							createdAt='2020-05-01'
 						/>
 					</div>
 					<div>
@@ -64,6 +65,7 @@ const RelatedPostSlider: React.FC = () => {
 							postSlider
 							authorPicture='/assets/images/hot-news/author.png'
 							tags={tags}
+							createdAt='2020-05-01'
 						/>
 					</div>
 					<div>
@@ -75,6 +77,7 @@ const RelatedPostSlider: React.FC = () => {
 							authorPicture='/assets/images/hot-news/author.png'
 							postSlider
 							tags={tags}
+							createdAt='2020-05-01'
 						/>
 					</div>
 				</Slider>

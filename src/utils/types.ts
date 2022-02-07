@@ -1,5 +1,6 @@
 export interface PageProps {
 	posts: Post[];
+	tagList: Tag[];
 }
 
 export interface Post {
@@ -9,6 +10,7 @@ export interface Post {
 	featuredImage: string;
 	author: Author;
 	tags: Tag[];
+	createdAt: string;
 }
 
 export interface Author {
@@ -19,6 +21,7 @@ export interface Author {
 }
 
 export interface Tag {
+	id: string;
 	name: string;
 }
 
@@ -31,4 +34,5 @@ export interface PostCardProps {
 	authorPicture: string;
 	postSlider?: boolean;
 	tags: Tag[];
+	createdAt: string;
 }
