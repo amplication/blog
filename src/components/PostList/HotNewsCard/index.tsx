@@ -18,6 +18,7 @@ interface HotNews {
 	featuredImage: string;
 	author: Author;
 	tags: Tag[];
+	createdAt: string;
 }
 
 const HotNewsCard: React.FC<Props> = ({ hotNews }) => {
@@ -29,6 +30,7 @@ const HotNewsCard: React.FC<Props> = ({ hotNews }) => {
 					<AuthorInfo
 						authorName={`${hotNews.author.firstName} ${hotNews.author.lastName}`}
 						authorPicture={hotNews.author.profileImage}
+						createdAt={hotNews.createdAt}
 					/>
 					<Tags tags={hotNews.tags} />
 					<NewsContent
