@@ -6,7 +6,7 @@ import Header from './Header';
 
 interface Props {
 	pageName: string;
-	pageDesc: string;
+	pageDesc?: string;
 }
 
 const Layout: React.FC<Props> = ({ children, pageName, pageDesc }) => {

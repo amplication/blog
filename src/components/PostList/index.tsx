@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { PageProps } from '@/types';
 import { useState } from 'react';
-import CategorySwitcher from './CategorySwitcher';
+import CategorySwitcher from './common/CategorySwitcher';
 import HotNewsCard from './HotNewsCard';
 import PostCard from './PostCard';
 
