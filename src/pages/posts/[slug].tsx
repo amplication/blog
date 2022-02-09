@@ -105,15 +105,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			query getPost($postId: String!) {
 				post(where: { id: $postId }) {
 					id
+					title
+					content
+					featuredImage
 					author {
 						id
 						firstName
 						lastName
 						profileImage
 					}
-					title
-					content
-					featuredImage
 					tags {
 						id
 						name

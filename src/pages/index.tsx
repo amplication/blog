@@ -1,10 +1,10 @@
-import Layout from "@/components/Layout";
-import PostList from "@/components/PostList";
-import SubscribeNewsletter from "@/components/SubscribeNewsletter";
-import { PageProps } from "@/types";
-import { gql } from "@apollo/client";
-import { client } from "lib/apollo-client";
-import type { GetServerSideProps, NextPage } from "next";
+import Layout from '@/components/Layout';
+import PostList from '@/components/PostList';
+import SubscribeNewsletter from '@/components/SubscribeNewsletter';
+import { PageProps } from '@/types';
+import { gql } from '@apollo/client';
+import { client } from 'lib/apollo-client';
+import type { GetServerSideProps, NextPage } from 'next';
 
 const Home: NextPage<PageProps> = ({ posts, tagList }) => {
 	return (
@@ -28,18 +28,18 @@ export const getServerSideProps: GetServerSideProps = async () => {
 			query {
 				posts(orderBy: { createdAt: Desc }) {
 					id
-					author {
-						id
-						firstName
-						lastName
-						profileImage
-					}
 					title
 					content
 					featuredImage
 					tags {
 						id
 						name
+					}
+					author {
+						id
+						firstName
+						lastName
+						profileImage
 					}
 					createdAt
 				}
