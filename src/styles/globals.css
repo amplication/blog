@@ -1,21 +1,21 @@
 @font-face {
-  font-family: "poppinsbold";
+  font-family: "poppins";
   src: url("/assets/fonts/poppins-bold-webfont.woff2") format("woff2"),
     url("/assets/fonts/poppins-bold-webfont.woff") format("woff");
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "poppinsmedium";
+  font-family: "poppins";
   src: url("/assets/fonts/poppins-medium-webfont.woff2") format("woff2"),
     url("/assets/fonts/poppins-medium-webfont.woff") format("woff");
-  font-weight: normal;
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "poppinsregular";
+  font-family: "poppins";
   src: url("/assets/fonts/poppins-regular-webfont.woff2") format("woff2"),
     url("/assets/fonts/poppins-regular-webfont.woff") format("woff");
   font-weight: normal;
@@ -23,10 +23,10 @@
 }
 
 @font-face {
-  font-family: "poppinssemibold";
+  font-family: "poppins";
   src: url("/assets/fonts/poppins-semibold-webfont.woff2") format("woff2"),
     url("/assets/fonts/poppins-semibold-webfont.woff") format("woff");
-  font-weight: normal;
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -34,12 +34,12 @@
   font-family: "ubuntu_monobold";
   src: url("/assets/fonts/ubuntumono-bold-webfont.woff2") format("woff2"),
     url("/assets/fonts/ubuntumono-bold-webfont.woff") format("woff");
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "dm_monoregular";
+  font-family: "dm_mono";
   src: url("/assets/fonts/dmmono-regular.woff2") format("woff2"),
     url("/assets/fonts/dmmono-regular.woff") format("woff");
   font-weight: normal;
@@ -47,10 +47,10 @@
 }
 
 @font-face {
-  font-family: "dm_monomedium";
+  font-family: "dm_mono";
   src: url("/assets/fonts/dmmono-medium.woff2") format("woff2"),
     url("/assets/fonts/dmmono-medium.woff") format("woff");
-  font-weight: normal;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -84,5 +84,24 @@ ul.slick-dots {
 @layer components {
   .post-content a {
     @apply text-purple-primary-dark;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  h5 {
+    font-size: 14px;
+  }
+  h6 {
+    font-size: 13.6px;
   }
 }
