@@ -1,7 +1,10 @@
+import 'highlight.js/styles/github.css';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
+
 interface Props {
 	image: string;
 	text: string;
@@ -22,7 +25,7 @@ const PostContent: React.FC<Props> = ({ title, text, image }) => {
 			</div>
 			<ReactMarkdown
 				remarkPlugins={[remarkGfm]}
-				rehypePlugins={[rehypeHighlight]}
+				rehypePlugins={[rehypeRaw, rehypeHighlight]}
 			>
 				{text as string}
 			</ReactMarkdown>

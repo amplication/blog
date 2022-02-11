@@ -11,7 +11,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children, pageName, pageDesc }) => {
 	return (
-		<div className='text-white font-poppinsregular bg-dark-100'>
+		<div className='font-normal text-white font-poppins bg-dark-100'>
 			<Head>
 				<title>{pageName} - Amplication</title>
 				<meta name='description' content={pageDesc} />

@@ -59,7 +59,7 @@ const SubscribeForm: React.FC<Props> = ({ postDetails }) => {
 				placeholder='Full Name'
 				className={`bg-dark-100 ${
 					postDetails ? '' : 'w-full xl:w-[280px]'
-				} text-base font-poppinsregular border border-dark-60 rounded-lg py-2 px-3 placeholder:text-dark-20`}
+				} text-base font-poppins font-normal border border-dark-60 rounded-lg py-2 px-3 placeholder:text-dark-20`}
 			/>
 			<input
 				ref={emailRef}
@@ -69,7 +69,7 @@ const SubscribeForm: React.FC<Props> = ({ postDetails }) => {
 				placeholder='email@example.com'
 				className={`bg-dark-100 ${
 					postDetails ? '' : 'w-full xl:w-[280px]'
-				} text-base font-poppinsregular border border-dark-60 rounded-lg py-2 px-3 placeholder:text-dark-20`}
+				} text-base font-poppins font-normal border border-dark-60 rounded-lg py-2 px-3 placeholder:text-dark-20`}
 			/>
 			<select
 				required
@@ -77,7 +77,7 @@ const SubscribeForm: React.FC<Props> = ({ postDetails }) => {
 				onChange={(e) => setSelectedOption(e.target.value)}
 				className={`bg-dark-100 ${
 					postDetails ? '' : 'w-full xl:w-[280px]'
-				} text-base font-poppinsregular border border-dark-60 rounded-lg py-2 px-3 placeholder:text-dark-20`}
+				} text-base font-poppins font-normal border border-dark-60 rounded-lg py-2 px-3 placeholder:text-dark-20`}
 			>
 				<option>How did you hear about us</option>
 				<option value='facebook'>Facebook</option>
@@ -89,7 +89,7 @@ const SubscribeForm: React.FC<Props> = ({ postDetails }) => {
 				type='submit'
 				className={`py-2 mt-2 ${
 					postDetails ? '' : 'xl:w-[280px]'
-				} text-base font-poppinsregular bg-purple-primary-light rounded text-center text-white`}
+				} text-base font-poppins font-normal bg-purple-primary-light rounded text-center text-white`}
 			>
 				Subscribe
 			</button>

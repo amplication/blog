@@ -1,43 +1,28 @@
 import PostCard from '@/components/PostList/PostCard';
+import { Post } from '@/types';
 import SidebarWidgetTitle from './Sidebar/SidebarWidgetTitle';
 
-const RelatedPostList: React.FC = () => {
-	const tags = [
-		{ id: '1', name: 'Blog Tag1' },
-		{ id: '2', name: 'Blog Tag2' },
-		{ id: '3', name: 'Blog Tag3' },
-	];
+interface RelatedPostListProps {
+	relatedPosts: Post[];
+}
+
+const RelatedPostList: React.FC<RelatedPostListProps> = ({ relatedPosts }) => {
 	return (
 		<div className='hidden xl:block xl:mb-[100px] '>
 			<SidebarWidgetTitle title='Related Posts' />
 			<div className='grid grid-cols-2 xl:grid-cols-3 gap-[30px] flex-wrap xl:mt-8'>
-				<PostCard
-					id='123'
-					title='Amplication workdocs updates, better column visibility, and oth...'
-					authorName='Jhon Doe'
-					authorPicture='/assets/images/hot-news/author.png'
-					image='/assets/images/related-posts/image-1.png'
-					tags={tags}
-					createdAt='2020-05-01'
-				/>
-				<PostCard
-					id='124'
-					title='Amplication workdocs updates, better column visibility, and oth...'
-					authorName='Jhon Doe'
-					authorPicture='/assets/images/hot-news/author.png'
-					image='/assets/images/related-posts/image-2.png'
-					tags={tags}
-					createdAt='2020-05-01'
-				/>
-				<PostCard
-					id='125'
-					title='Amplication workdocs updates, better column visibility, and oth...'
-					authorName='Jhon Doe'
-					authorPicture='/assets/images/hot-news/author.png'
-					image='/assets/images/related-posts/image-3.png'
-					tags={tags}
-					createdAt='2020-05-01'
-				/>
+				{relatedPosts.slice(0, 3).map((post) => (
+					<PostCard
+						id={post.id}
+						key={post.id}
+						title={post.title}
+						authorName={`${post.author.firstName} ${post.author.lastName}`}
+						authorPicture={post.author.profileImage}
+						image={post.featuredImage}
+						tags={post.tags}
+						createdAt={post.createdAt}
+					/>
+				))}
 			</div>
 		</div>
 	);

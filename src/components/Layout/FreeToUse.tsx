@@ -24,7 +24,7 @@ const FreeToUse: React.FC = () => {
 							/>
 						</div>
 						<div className='flex flex-col items-center text-center xl:text-left xl:items-start gap-y-6 xl:gap-y-10 xl:py-[58px] '>
-							<div className=' font-poppinssemibold text-[30px] leading-9 xl:text-[60px] xl:leading-[72px]'>
+							<div className=' font-poppins font-bold text-[30px] leading-9 xl:text-[60px] xl:leading-[72px]'>
 								<h3>
 									Free to Use.{' '}
 									<br className='hidden xl:block' />{' '}
@@ -32,7 +32,7 @@ const FreeToUse: React.FC = () => {
 								</h3>
 								<h3></h3>
 							</div>
-							<button className=' bg-dark-100 w-full xl:w-[294px] py-2 rounded font-poppinsmedium try-amplication'>
+							<button className=' bg-dark-100 w-full xl:w-[294px] py-2 rounded font-poppins font-medium try-amplication'>
 								Try amplication in 5 minutes
 							</button>
 						</div>
