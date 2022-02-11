@@ -1,7 +1,6 @@
 import { Tag } from '@/types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useRef } from 'react';
 
 interface Props {
 	tagList: Tag[];
@@ -14,23 +13,13 @@ const firstTag = {
 
 const CategorySwitcher: React.FC<Props> = ({ tagList }) => {
 	const Router = useRouter();
-	const containerRef = useRef<HTMLUListElement | any>(null);
 
 	const tagID = Router.query.tagId || '1';
 
 	const updatedTagList = [firstTag, ...tagList];
 
-	const handleOnWheelScroll = (e: React.WheelEvent<HTMLUListElement>) => {
-		e.preventDefault();
-		containerRef.current.scrollLeft += e.deltaY;
-	};
-
 	return (
-		<ul
-			ref={containerRef}
-			className='flex px-4 pb-3 overflow-x-scroll xl:px-0 gap-x-8 scrollbar-hide mb-[35px] lg:mb-[50px]'
-			onWheel={handleOnWheelScroll}
-		>
+		<ul className='flex px-4 pb-3 overflow-x-scroll lg:overflow-x-auto lg:flex-wrap lg:gap-8 xl:px-0 gap-x-8 scrollbar-hide mb-[35px] lg:mb-[50px]'>
 			{updatedTagList.map((tag) => (
 				<Link
 					key={tag.id}
