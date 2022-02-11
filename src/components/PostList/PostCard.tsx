@@ -43,7 +43,7 @@ const PostCard: React.FC<PostCardProps> = ({
 				<Tags tags={tags} />
 				<Link href={`/posts/${makeSlug(title)}-${id}`} passHref>
 					<div className='cursor-pointer'>
-						<h3 className='mb-3 text-lg font-poppinsmedium line-clamp-2 lg:mb-0'>
+						<h3 className='mb-3 text-lg font-medium font-poppins line-clamp-2 lg:mb-0'>
 							{title}
 						</h3>
 						<ReactMarkdown className='hidden text-sm lg:block lg:line-clamp-2'>

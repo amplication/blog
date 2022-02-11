@@ -17,7 +17,10 @@ const Menu: React.FC = () => {
 		<ul className='items-center hidden lg:flex gap-x-8'>
 			{navlinks.map((navlink, index) => {
 				return (
-					<li key={index} className='text-dark-20'>
+					<li
+						key={index}
+						className='transition duration-300 ease-in-out text-dark-20 hover:text-white'
+					>
 						<a href={navlink.link}>{navlink.title}</a>
 					</li>
 				);

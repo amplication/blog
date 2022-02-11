@@ -19,7 +19,7 @@ const CategorySwitcher: React.FC<Props> = ({ tagList }) => {
 	const updatedTagList = [firstTag, ...tagList];
 
 	return (
-		<ul className='flex px-4 pb-3 overflow-x-scroll xl:px-0 gap-x-8 scrollbar-hide mb-[35px] lg:mb-[50px]'>
+		<ul className='flex px-4 pb-3 overflow-x-scroll lg:overflow-x-auto lg:flex-wrap lg:gap-8 xl:px-0 gap-x-8 scrollbar-hide mb-[35px] lg:mb-[50px]'>
 			{updatedTagList.map((tag) => (
 				<Link
 					key={tag.id}
@@ -29,7 +29,7 @@ const CategorySwitcher: React.FC<Props> = ({ tagList }) => {
 					<li
 						className={`text-lg px-[18px] cursor-pointer min-w-max ${
 							tag.id === tagID
-								? 'font-poppinsbold relative after:absolute after:w-full after:h-1 after:bg-[#41CADD] after:rounded-sm after:bottom-0 after:mb-[-10px] after:left-0'
+								? 'font-poppins font-bold relative after:absolute after:w-full after:h-1 after:bg-[#41CADD] after:rounded-sm after:bottom-0 after:mb-[-10px] after:left-0'
 								: ''
 						}`}
 					>

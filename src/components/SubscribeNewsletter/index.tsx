@@ -8,7 +8,7 @@ interface Props {
 const SubscribeNewsletter: React.FC<Props> = ({ postDetails = false }) => {
 	return (
 		<div
-			className={` bg-dark-80 rounded-2xl text-2xl relative font-poppinsbold flex flex-col items-center
+			className={` bg-dark-80 rounded-2xl text-2xl relative font-poppins font-bold flex flex-col items-center
 				${
 					postDetails
 						? ' px-6 py-10 xl:px-12 xl:py-20  gap-y-6'
@@ -25,7 +25,7 @@ const SubscribeNewsletter: React.FC<Props> = ({ postDetails = false }) => {
 			/>
 			<div className='relative z-10'>
 				<h2
-					className={`text-lg leading-7 font-poppinsbold ${
+					className={`text-lg leading-7 font-poppins font-bold ${
 						postDetails ? '' : 'xl:leading-9 xl:text-2xl xl:pr-6'
 					}`}
 				>

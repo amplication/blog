@@ -3,7 +3,7 @@
 const FollowUs: React.FC = () => {
 	return (
 		<div className=''>
-			<h4 className='mb-6 text-lg font-poppinsmedium'>Follow us</h4>
+			<h4 className='mb-6 text-lg font-medium font-poppins'>Follow us</h4>
 			<div className='flex gap-x-8'>
 				<a href='https://github.com/amplication/amplication'>
 					<img

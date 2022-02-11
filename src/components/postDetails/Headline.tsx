@@ -4,7 +4,7 @@ interface Props {
 }
 const Headline: React.FC<Props> = ({ text }) => {
 	return (
-		<h1 className='text-lg xl:text-[32px] xl:leading-[48px] font-poppinssemibold'>
+		<h1 className='text-lg xl:text-[32px] xl:leading-[48px] font-poppins font-semibold'>
 			{text}
 		</h1>
 	);

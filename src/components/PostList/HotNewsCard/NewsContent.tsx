@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
 import makeSlug from 'utils/makeSlug';
 
 interface Props {
@@ -11,10 +12,12 @@ const NewsContent: React.FC<Props> = ({ title, text, id }) => {
 	return (
 		<Link href={`/posts/${makeSlug(title)}-${id}`} passHref>
 			<div className='cursor-pointer'>
-				<h2 className='mb-1 text-lg lg:mb-4 lg:text-2xl font-poppinsmedium line-clamp-2'>
+				<h2 className='mb-1 text-lg font-medium lg:mb-4 lg:text-2xl font-poppins line-clamp-2'>
 					{title}
 				</h2>
-				<p className='text-sm lg:text-base line-clamp-2'>{text}</p>
+				<ReactMarkdown className='text-sm lg:text-base line-clamp-2'>
+					{text as string}
+				</ReactMarkdown>
 			</div>
 		</Link>
 	);

@@ -16,71 +16,59 @@ import getIdFromSlug from 'utils/getSlug';
 interface Props {
 	post: Post;
 	tagList: Tag[];
+	postList: Post[];
 }
 
-const PostDetails: NextPage<Props> = ({ post, tagList }) => {
-	const first4 = post
-		? post.title.split(' ').slice(0, 4).join(' ')
-		: 'Lorem Sum a Lorem';
-	const dummyText =
-		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati id consequuntur dicta sunt voluptates? Quaerat aperiam incidunt modi qui deserunt sint ipsam iste laboriosam asperiores ullam rerum doloribus nihil debitis minus, delectus at distinctio velit, id ipsa a ducimus fugiat quisquam? Doloribus saepe laboriosam excepturi illo, itaque quo tempora a est sunt facilis? Aperiam, eos impedit? Inventore delectus praesentium itaque necessitatibus, quis dolor ducimus deleniti modi odio, neque assumenda. Tempora repudiandae reiciendis culpa officiis rerum repellendus vero ipsa.';
+const PostDetails: NextPage<Props> = ({ post, tagList, postList }) => {
+	const newTagList = post.tags.map((tag) => tag.id);
+	const relatedPosts = postList.filter((post) => {
+		if (post.tags.some((tag) => newTagList.includes(tag.id))) {
+			return post;
+		}
+	});
 
-	const tags = [
-		{ id: '1', name: 'Blog Tag1' },
-		{ id: '2', name: 'Blog Tag2' },
-		{ id: '3', name: 'Blog Tag3' },
-	];
+	const filteredRelatedPosts = relatedPosts.filter(
+		(relatedPost) => relatedPost.id !== post.id
+	);
+
+	const first4Word = post.title.split(' ').slice(0, 4).join(' ');
+
 	return (
-		<Layout
-			pageName={post ? post.title : 'Related Post'}
-			pageDesc={post ? post.content : dummyText}
-		>
+		<Layout pageName={post.title} pageDesc={post.content}>
 			<section className='px-4 md:px-16 xl:px-0'>
 				<div className='container'>
 					{/* Breadcrumb */}
-					<Breadcrumb text={first4} />
+					<Breadcrumb text={first4Word} />
 					<div className='xl:grid xl:grid-cols-12'>
 						<div className='xl:col-span-8'>
 							<div className='mb-8'>
 								{/* Headline */}
-								<Headline
-									text={post ? post.title : 'Lorem sum a pit'}
-								/>
+								<Headline text={post.title} />
 
 								{/* Taglist */}
-								<PostTagList tags={post ? post.tags : tags} />
+								<PostTagList tags={post.tags} />
 
 								{/* Author Info */}
 								<AuthorInfo
-									authorName={
-										post
-											? `${post.author.firstName} ${post.author.lastName}`
-											: 'John Doe'
-									}
-									authorPicture={
-										post
-											? post.author.profileImage
-											: '/assets/images/hot-news/author.png'
-									}
+									authorName={`${post.author.firstName} ${post.author.lastName}`}
+									authorPicture={post.author.profileImage}
 									postDetails
-									createdAt={
-										post ? post.createdAt : '2020-05-05'
-									}
+									createdAt={post.createdAt}
 								/>
 							</div>
 							{/* Post Content */}
 							<PostContent
-								image={
-									post
-										? post.featuredImage
-										: '/assets/images/post-details/image-1.png'
-								}
-								text={post ? post.content : dummyText}
-								title={post ? post.title : 'Lorem sum a pit'}
+								image={post.featuredImage}
+								text={post.content}
+								title={post.title}
 							/>
 
 							{/* Related Post Slider for small devices */}
-							<RelatedPostSlider />
+							{relatedPosts.length > 0 && (
+								<RelatedPostSlider
+									relatedPosts={filteredRelatedPosts}
+								/>
+							)}
 						</div>
 						{/* Spacer */}
 						<div className='xl:col-span-1' />
@@ -88,7 +76,9 @@ const PostDetails: NextPage<Props> = ({ post, tagList }) => {
 						<Sidebar tagList={tagList} />
 					</div>
 					{/* Related Post Slider for Large devices */}
-					<RelatedPostList />
+					{relatedPosts.length > 0 && (
+						<RelatedPostList relatedPosts={filteredRelatedPosts} />
+					)}
 				</div>
 			</section>
 		</Layout>
@@ -118,6 +108,24 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 						id
 						name
 					}
+					createdAt
+				}
+				posts(orderBy: { createdAt: Desc }) {
+					id
+					title
+					content
+					featuredImage
+					author {
+						id
+						firstName
+						lastName
+						profileImage
+					}
+					tags {
+						id
+						name
+					}
+					createdAt
 				}
 				tags {
 					id
@@ -132,6 +140,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		props: {
 			post: data.post,
 			tagList: data.tags,
+			postList: data.posts,
 		},
 	};
 };

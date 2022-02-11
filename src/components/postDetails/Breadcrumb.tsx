@@ -8,7 +8,9 @@ const Breadcrumb: React.FC<Props> = ({ text }) => {
 	return (
 		<p className='mb-8 text-sm'>
 			Home / <Link href='/'>Blog</Link> /{' '}
-			<span className=' font-poppinsmedium text-[#53DBEE]'>{text}</span>
+			<span className=' font-poppins font-medium text-[#53DBEE]'>
+				{text}
+			</span>
 		</p>
 	);
 };

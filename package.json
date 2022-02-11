@@ -19,6 +19,7 @@
 		"react-share": "^4.4.0",
 		"react-slick": "^0.28.1",
 		"rehype-highlight": "^5.0.2",
+		"rehype-raw": "^6.1.1",
 		"remark-gfm": "^3.0.1",
 		"slick-carousel": "^1.8.1"
 	},
