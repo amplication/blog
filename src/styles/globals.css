@@ -104,4 +104,25 @@ ul.slick-dots {
   .post-content h6 {
     font-size: 13.6px;
   }
+
+  .post-content tr {
+    @apply bg-dark-90;
+  }
+  .post-content th {
+    @apply bg-dark-70;
+  }
+
+  .post-content table td,
+  .post-content table th {
+    @apply border-1 border-dark-60 p-3;
+  }
+
+  blockquote {
+    border-left-color: var(--primary-new);
+    background-color: var(--black80);
+  }
+
+  blockquote {
+    @apply border-l-8 border-purple-primary-dark p-4 bg-dark-80 text-dark-10 rounded;
+  }
 }

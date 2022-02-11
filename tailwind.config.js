@@ -8,14 +8,22 @@ module.exports = {
       center: true,
     },
     extend: {
+      borderWidth: {
+        1: "1px",
+      },
       colors: {
         dark: {
           100: "#15192C",
           90: "#22273C",
           80: "#2C3249",
           70: "#373D57",
+          60: "#444b66",
+          50: "#515873",
+          40: "#686f8c",
           30: "#80869D",
-          20: "#A3A8B8",
+          20: "#a3a8b8",
+          10: "#b7bac7",
+          5: "#d3d4dc",
         },
         purple: {
           primary: {
